@@ -1,175 +1,245 @@
 <!DOCTYPE html>
-<html lang="zh - CN">
-
+<html lang="zh">
 <head>
-  <meta charset="UTF - 8">
-  <meta name="viewport" content="width=device-width, initial - scale=1.0">
-  <title>Jay相关内容展示</title>
-  <style>
-    /* 全局样式 */
-    body {
-      font-family: Arial, sans - serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    /* 视频样式 */
-    video {
-      width: 100%;
-      max - width: 800px;
-      display: block;
-      margin: 20px auto;
-    }
-
-    /* 图片列表样式 */
-    ul {
-      list - style: none;
-      padding: 0;
-      display: flex;
-      flex - wrap: wrap;
-      justify - content: space - around;
-    }
-
-    li {
-      width: 300px;
-      margin: 10px;
-      background-color: white;
-      box - shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      padding: 10px;
-      text - align: center;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-    a {
-      text - decoration: none;
-      color: #333;
-    }
-
-    a:hover {
-      color: #007bff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周杰伦项目展示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 30px;
+            background-color: #e9ecef; /* Light grey background */
+            color: #343a40; /* Dark grey text */
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff; /* White background for content area */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #0056b3; /* Darker blue for headings */
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 40px;
+            color: #007bff; /* Primary blue for main title */
+        }
+        .content-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f8f9fa; /* Lighter background for sections */
+            border-radius: 8px;
+            border: 1px solid #dee2e6; /* Light grey border */
+        }
+        .content-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ced4da; /* Dashed border */
+        }
+        .content-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .content-item h3 {
+            color: #007bff; /* Blue for item titles */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center images in the gallery */
+            gap: 20px; /* Space between images */
+            padding: 20px 0;
+        }
+        .image-gallery img {
+            max-width: 250px; /* Set max width for smaller images */
+            height: auto;
+            border: 1px solid #cce5ff; /* Light blue border */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+        }
+         .image-gallery img:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+        .single-image img, .single-video video {
+             max-width: 600px; /* Max width for single larger images/videos */
+             width: 100%; /* Ensure responsiveness */
+             height: auto;
+             display: block;
+             margin: 15px auto;
+             border: 1px solid #cce5ff;
+             border-radius: 8px;
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .content-item a {
+             text-decoration: none; /* Remove underline from links */
+             color: inherit; /* Inherit color from parent */
+             display: block; /* Make the link block-level */
+             text-align: center;
+        }
+        .content-item a:hover img {
+             transform: scale(1.05); /* Apply hover effect to image inside link */
+        }
+        .content-item .link-text {
+             display: block;
+             text-align: center;
+             margin-top: 10px;
+             color: #007bff;
+             text-decoration: none;
+        }
+        .content-item .link-text:hover {
+            text-decoration: underline;
+        }
+         /* Specific style for the initial video to add more space below it */
+        .initial-video {
+             margin-bottom: 40px;
+             padding-bottom: 20px;
+             border-bottom: 2px solid #007bff; /* Add a more prominent separator */
+        }
+    </style>
 </head>
-
 <body>
-  <!-- 放置视频 -->
-  <video controls>
-    <source src="周杰伦引入.mp4" type="video/mp4">
-    你的浏览器不支持视频播放。
-  </video>
+    <div class="container">
+        <h1>周杰伦项目内容展示</h1>
 
-  <!-- 放置图片列表 -->
-  <ul>
-    <li><a href="弹幕LDA主题分析可视化.html"><img src="LDA展示图.png" alt="LDA展示图"></a><p>LDA展示图</p></li>
-    <li><img src="主题困惑度数据可视化.png" alt="主题困惑度数据可视化"><p>主题困惑度数据可视化</p></li>
-    <li><img src="主题连贯性可视化.png" alt="主题连贯性可视化"><p>主题连贯性可视化</p></li>
-    <li><img src="周杰伦站弹幕动态词云图.gif" alt="周杰伦站弹幕动态词云图"><p>周杰伦站弹幕动态词云图</p></li>
-    <li><img src="周杰伦弹幕词频共现网络图.png" alt="周杰伦弹幕词频共现网络图"><p>周杰伦弹幕词频共现网络图</p></li>
-    <li><img src="周杰伦微博话题日分布.png" alt="周杰伦微博话题日分布"><p>周杰伦微博话题日分布</p></li>
-    <li><img src="周杰伦怀旧视频情感分布饼图.png" alt="周杰伦怀旧视频情感分布饼图"><p>周杰伦怀旧视频情感分布饼图</p></li>
-    <li><img src="周杰伦怀旧视频情感得分分布图.png" alt="周杰伦怀旧视频情感得分分布图"><p>周杰伦怀旧视频情感得分分布图</p></li>
-    <li><img src="周杰伦怀旧视频情感时间变化图.png" alt="周杰伦怀旧视频情感时间变化图"><p>周杰伦怀旧视频情感时间变化图</p></li>
-    <li><img src="周杰伦晴天微博_词云图.jpg" alt="周杰伦晴天微博_词云图"><p>周杰伦晴天微博_词云图</p></li>
-    <li><img src="周杰伦视频观看量与弹幕量关系.png" alt="周杰伦视频观看量与弹幕量关系"><p>周杰伦视频观看量与弹幕量关系</p></li>
-    <li><img src="周杰伦超话微博发布时间分布.png" alt="周杰伦超话微博发布时间分布"><p>周杰伦超话微博发布时间分布</p></li>
-    <li><img src="周杰伦超话点赞数分布.png" alt="周杰伦超话点赞数分布"><p>周杰伦超话点赞数分布</p></li>
-    <li><img src="弹幕高频词柱状图.png" alt="弹幕高频词柱状图"><p>弹幕高频词柱状图</p></li>
-    <li><img src="晴天微博_柱状图.png" alt="晴天微博_柱状图"><p>晴天微博_柱状图</p></li>
-    <li><img src="正面弹幕词云图.png" alt="正面弹幕词云图"><p>正面弹幕词云图</p></li>
-    <li><img src="负面弹幕词云图.png" alt="负面弹幕词云图"><p>负面弹幕词云图</p></li>
-  </ul>
+        <!-- 周杰伦引入视频 - 放置在开头 -->
+        <div class="content-item single-video initial-video">
+            <h3>周杰伦引入 (视频)</h3>
+            <video controls>
+                <source src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%95%E5%85%A5.mp4" type="video/mp4">
+                您的浏览器不支持视频标签。
+            </video>
+        </div>
+
+
+        <!-- Section for key visualizations -->
+        <div class="content-section">
+            <h2>关键可视化图表</h2>
+
+            <div class="content-item single-image">
+                <h3>LDA展示图 (点击查看LDA主题分析)</h3>
+                <!-- Wrap the image in an anchor tag that links to the HTML file -->
+                <a href="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95LDA%E4%B8%BB%E9%A2%98%E5%88%86%E6%9E%90%E5%8F%AF%E8%A7%86%E5%8C%96.html" target="_blank">
+                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/LDA%E5%B1%95%E7%A4%BA%E5%9B%BE.png" alt="LDA展示图">
+                </a>
+            </div>
+
+            <div class="content-item single-image">
+                <h3>主题困惑度数据可视化图</h3>
+                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E5%9B%B0%E6%83%91%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题困惑度数据可视化图">
+            </div>
+
+             <div class="content-item single-image">
+                <h3>主题连贯性可视化图</h3>
+                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E8%BF%9E%E8%B4%AF%E6%80%A7%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题连贯性可视化图">
+            </div>
+
+        </div>
+
+         <!-- Section for Word Clouds -->
+        <div class="content-section">
+            <h2>词云图集合</h2>
+            <div class="image-gallery">
+                <div class="content-item">
+                    <h3>周杰伦B站弹幕动态词云图 (GIF)</h3>
+                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6B%E7%AB%99%E5%BC%B9%E5%B9%95%E5%8A%A8%E6%80%81%E8%AF%8D%E4%BA%91%E5%9B%BE.gif" alt="周杰伦B站弹幕动态词云图">
+                </div>
+
+                <div class="content-item">
+                    <h3>周杰伦晴天微博_词云图 (JPG)</h3>
+                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E8%AF%8D%E4%BA%91%E5%9B%BE.jpg" alt="周杰伦晴天微博_词云图">
+                </div>
+
+                 <div class="content-item">
+                    <h3>弹幕词云图</h3>
+                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="弹幕词云图">
+                </div>
+
+                <div class="content-item">
+                    <h3>正面弹幕词云图</h3>
+                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%AD%A3%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="正面弹幕词云图">
+                </div>
+
+                <div class="content-item">
+                    <h3>负面弹幕词云图</h3>
+                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E8%B4%9F%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="负面弹幕词云图">
+                </div>
+            </div>
+        </div>
+
+
+         <!-- Section for other charts -->
+        <div class="content-section">
+            <h2>其他图表</h2>
+
+            <div class="content-item single-image">
+                <h3>周杰伦弹幕词语共现网络图</h3>
+                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%B9%E5%B9%95%E8%AF%8D%E8%AF%AD%E5%85%B1%E7%8E%B0%E7%BD%91%E7%BB%9C%E5%9B%BE.png" alt="周杰伦弹幕词语共现网络图">
+            </div>
+
+            <div class="content-item single-image">
+                <h3>周杰伦微博超话日期分布</h3>
+                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BE%AE%E5%8D%9A%E8%B6%85%E8%AF%9D%E6%97%A5%E6%9C%9F%E5%88%86%E5%B8%83.png" alt="周杰伦微博超话日期分布">
+            </div>
+
+             <div class="content-item single-image">
+                <h3>周杰伦怀旧视频情感分布饼图</h3>
+                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%94%91%E6%83%85%E6%84%9F%E5%88%86%E5%B8%83%E9%饼图.png" alt="周杰伦怀旧视频情感分布饼图">
+        </div>
+
+        <div class="content-item single-image">
+            <h3>周杰伦怀旧视频情感得分分布图</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E5%BE%97%E5%88%86%E5%88%86%E5%B8%83%E5%9B%BE.png" alt="周杰伦怀旧视频情感得分分布图">
+        </div>
+
+         <div class="content-item single-image">
+            <h3>周杰伦怀旧视频情感时间变化图</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%94%91%E6%83%85%E6%84%9F%E6%97%B6%E9%97%B4%E5%8F%98%E5%8C%96%E5%9B%BE.png" alt="周杰伦怀旧视频情感时间变化图">
+        </div>
+
+         <div class="content-item single-image">
+            <h3>周杰伦视频观看量与弹幕量关系</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%A7%86%E9%A2%91%E8%A7%82%E7%9C%8B%E9%87%8F%E4%B8%8E%E5%BC%B9%E5%B9%95%E9%87%8F%E5%85%B3%E7%B3%BB.png" alt="周杰伦视频观看量与弹幕量关系">
+        </div>
+
+        <div class="content-item single-image">
+            <h3>周杰伦超话微博发布时间分布</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E5%BE%AE%E5%8D%9A%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83.png" alt="周杰伦超话微博发布时间分布">
+        </div>
+
+        <div class="content-item single-image">
+            <h3>周杰伦超话点赞数分布</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E7%82%B9%E8%B5%9E%E6%95%B0%E5%88%86%E5%B8%83.png" alt="周杰伦超话点赞数分布">
+        </div>
+
+         <div class="content-item single-image">
+            <h3>弹幕热门词赛跑图 (GIF)</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E7%83%AD%E9%97%A8%E8%AF%8D%E8%B5%9B%E8%B7%91%E5%9B%BE.gif" alt="弹幕热门词赛跑图">
+        </div>
+
+        <div class="content-item single-image">
+            <h3>弹幕高频词柱状图</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E9%AB%98%E9%94%91%E8%AF%8D%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="弹幕高频词柱状图">
+        </div>
+
+        <div class="content-item single-image">
+            <h3>晴天微博_柱状图</h3>
+            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="晴天微博_柱状图">
+        </div>
+
+
+        </div>
+
+    </div>
 </body>
-
-</html><!DOCTYPE html>
-<html lang="zh - CN">
-
-<head>
-  <meta charset="UTF - 8">
-  <meta name="viewport" content="width=device-width, initial - scale=1.0">
-  <title>Jay相关内容展示</title>
-  <style>
-    /* 全局样式 */
-    body {
-      font-family: Arial, sans - serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    /* 视频样式 */
-    video {
-      width: 100%;
-      max - width: 800px;
-      display: block;
-      margin: 20px auto;
-    }
-
-    /* 图片列表样式 */
-    ul {
-      list - style: none;
-      padding: 0;
-      display: flex;
-      flex - wrap: wrap;
-      justify - content: space - around;
-    }
-
-    li {
-      width: 300px;
-      margin: 10px;
-      background-color: white;
-      box - shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      padding: 10px;
-      text - align: center;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-    a {
-      text - decoration: none;
-      color: #333;
-    }
-
-    a:hover {
-      color: #007bff;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- 放置视频 -->
-  <video controls>
-    <source src="周杰伦引入.mp4" type="video/mp4">
-    你的浏览器不支持视频播放。
-  </video>
-
-  <!-- 放置图片列表 -->
-  <ul>
-    <li><a href="弹幕LDA主题分析可视化.html"><img src="LDA展示图.png" alt="LDA展示图"></a><p>LDA展示图</p></li>
-    <li><img src="主题困惑度数据可视化.png" alt="主题困惑度数据可视化"><p>主题困惑度数据可视化</p></li>
-    <li><img src="主题连贯性可视化.png" alt="主题连贯性可视化"><p>主题连贯性可视化</p></li>
-    <li><img src="周杰伦站弹幕动态词云图.gif" alt="周杰伦站弹幕动态词云图"><p>周杰伦站弹幕动态词云图</p></li>
-    <li><img src="周杰伦弹幕词频共现网络图.png" alt="周杰伦弹幕词频共现网络图"><p>周杰伦弹幕词频共现网络图</p></li>
-    <li><img src="周杰伦微博话题日分布.png" alt="周杰伦微博话题日分布"><p>周杰伦微博话题日分布</p></li>
-    <li><img src="周杰伦怀旧视频情感分布饼图.png" alt="周杰伦怀旧视频情感分布饼图"><p>周杰伦怀旧视频情感分布饼图</p></li>
-    <li><img src="周杰伦怀旧视频情感得分分布图.png" alt="周杰伦怀旧视频情感得分分布图"><p>周杰伦怀旧视频情感得分分布图</p></li>
-    <li><img src="周杰伦怀旧视频情感时间变化图.png" alt="周杰伦怀旧视频情感时间变化图"><p>周杰伦怀旧视频情感时间变化图</p></li>
-    <li><img src="周杰伦晴天微博_词云图.jpg" alt="周杰伦晴天微博_词云图"><p>周杰伦晴天微博_词云图</p></li>
-    <li><img src="周杰伦视频观看量与弹幕量关系.png" alt="周杰伦视频观看量与弹幕量关系"><p>周杰伦视频观看量与弹幕量关系</p></li>
-    <li><img src="周杰伦超话微博发布时间分布.png" alt="周杰伦超话微博发布时间分布"><p>周杰伦超话微博发布时间分布</p></li>
-    <li><img src="周杰伦超话点赞数分布.png" alt="周杰伦超话点赞数分布"><p>周杰伦超话点赞数分布</p></li>
-    <li><img src="弹幕高频词柱状图.png" alt="弹幕高频词柱状图"><p>弹幕高频词柱状图</p></li>
-    <li><img src="晴天微博_柱状图.png" alt="晴天微博_柱状图"><p>晴天微博_柱状图</p></li>
-    <li><img src="正面弹幕词云图.png" alt="正面弹幕词云图"><p>正面弹幕词云图</p></li>
-    <li><img src="负面弹幕词云图.png" alt="负面弹幕词云图"><p>负面弹幕词云图</p></li>
-  </ul>
-</body>
-
 </html>
