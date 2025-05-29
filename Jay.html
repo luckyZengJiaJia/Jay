@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>周杰伦项目展示</title>
+    <title>周杰伦音乐宇宙数据分析</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,14 +14,109 @@
         }
         
         body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #0d1530, #1a2a6c, #2c3e8f);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #333;
-            line-height: 1.6;
+            animation: gradientBG 18s ease infinite;
+            color: #f0f0f0;
+            line-height: 1.7;
             padding: 20px;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(178, 31, 31, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(26, 42, 108, 0.2) 0%, transparent 30%);
+            z-index: -1;
+        }
+        
+        /* 周杰伦照片装饰元素 - 随意但有章法 */
+        .jay-photo {
+            position: fixed;
+            z-index: 0;
+            border: 4px double rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            transform-origin: center;
+            filter: sepia(0.2) brightness(0.95);
+        }
+        
+        .jay-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .jay-photo-1 {
+            top: 8%;
+            left: 4%;
+            width: 180px;
+            height: 240px;
+            transform: rotate(-8deg);
+        }
+        
+        .jay-photo-2 {
+            top: 12%;
+            right: 5%;
+            width: 200px;
+            height: 150px;
+            transform: rotate(5deg);
+        }
+        
+        .jay-photo-3 {
+            bottom: 10%;
+            left: 3%;
+            width: 160px;
+            height: 200px;
+            transform: rotate(-4deg);
+        }
+        
+        .jay-photo-4 {
+            bottom: 15%;
+            right: 4%;
+            width: 220px;
+            height: 170px;
+            transform: rotate(7deg);
+        }
+        
+        .jay-photo-5 {
+            top: 40%;
+            left: 1%;
+            width: 140px;
+            height: 190px;
+            transform: rotate(-12deg);
+        }
+        
+        .jay-photo-6 {
+            top: 35%;
+            right: 2%;
+            width: 170px;
+            height: 220px;
+            transform: rotate(10deg);
+        }
+        
+        .jay-photo:hover {
+            transform: scale(1.08) rotate(0deg);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            filter: sepia(0) brightness(1.05);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .jay-photo:hover img {
+            transform: scale(1.05);
         }
         
         @keyframes gradientBG {
@@ -30,23 +126,26 @@
         }
         
         .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+            max-width: 1300px;
+            margin: 50px auto;
+            background: rgba(15, 20, 40, 0.85);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
             position: relative;
             z-index: 1;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(100, 120, 200, 0.2);
         }
         
         .header {
-            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            background: linear-gradient(105deg, #1a2a6c 0%, #b21f1f 70%, #2c3e8f 100%);
             color: white;
-            padding: 30px 40px;
+            padding: 50px 40px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 3px solid rgba(255, 215, 0, 0.3);
         }
         
         .header::before {
@@ -56,75 +155,120 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,30 100,0 L100,100 Q50,70 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);
             opacity: 0.3;
         }
         
         .header h1 {
-            font-size: 3.2rem;
+            font-size: 4rem;
             margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
             position: relative;
+            font-family: 'Ma Shan Zheng', cursive;
+            background: linear-gradient(to right, #ffd700, #ffffff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { background-position: -100%; }
+            100% { background-position: 200%; }
         }
         
         .header p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             max-width: 800px;
             margin: 0 auto;
             opacity: 0.9;
             position: relative;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .music-icon {
             position: absolute;
-            font-size: 1.5rem;
-            animation: float 3s ease-in-out infinite;
+            font-size: 2rem;
+            animation: float 5s ease-in-out infinite;
+            color: rgba(255, 215, 0, 0.7);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
         
-        .music-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .music-icon:nth-child(2) { top: 60%; left: 15%; animation-delay: 0.5s; }
-        .music-icon:nth-child(3) { top: 40%; right: 12%; animation-delay: 1s; }
-        .music-icon:nth-child(4) { top: 70%; right: 8%; animation-delay: 1.5s; }
+        .music-icon:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+        .music-icon:nth-child(2) { top: 65%; left: 12%; animation-delay: 1s; }
+        .music-icon:nth-child(3) { top: 35%; right: 10%; animation-delay: 2s; }
+        .music-icon:nth-child(4) { top: 75%; right: 7%; animation-delay: 1.5s; }
+        .music-icon:nth-child(5) { top: 25%; left: 15%; animation-delay: 0.7s; }
+        .music-icon:nth-child(6) { top: 55%; right: 15%; animation-delay: 2.5s; }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(8deg); }
         }
         
         .main-content {
-            padding: 30px;
+            padding: 50px 40px;
         }
         
         .section-title {
             text-align: center;
-            margin: 35px 0 25px;
+            margin: 50px 0 35px;
             padding-bottom: 15px;
-            border-bottom: 3px solid #1a2a6c;
-            color: #1a2a6c;
-            font-size: 2.2rem;
+            color: #ffd700;
+            font-size: 2.8rem;
             position: relative;
+            font-family: 'Ma Shan Zheng', cursive;
+            letter-spacing: 2px;
         }
         
         .section-title::after {
             content: "";
             position: absolute;
-            bottom: -3px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #b21f1f;
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f, #1a2a6c);
+            border-radius: 2px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            font-size: 1.3rem;
+            color: #c0c0ff;
+            line-height: 1.9;
+            padding: 0 20px;
         }
         
         .video-container {
-            width: 85%;
-            max-width: 800px;
-            margin: 30px auto 50px;
-            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto 60px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .video-container::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f, #2c3e8f);
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.6;
         }
         
         .video-container video {
@@ -134,38 +278,63 @@
         
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
         }
         
         .card {
-            background: white;
-            border-radius: 12px;
+            background: linear-gradient(to bottom right, rgba(30, 35, 60, 0.8), rgba(20, 25, 50, 0.9));
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-            transition: all 0.3s ease;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(100, 120, 200, 0.2);
+            z-index: 2;
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
         
         .card-header {
             background: linear-gradient(to right, #1a2a6c, #2c3e8f);
-            color: white;
-            padding: 18px 20px;
-            font-size: 1.3rem;
+            color: #ffd700;
+            padding: 20px 25px;
+            font-size: 1.5rem;
             font-weight: 600;
             text-align: center;
+            position: relative;
+            letter-spacing: 1px;
+        }
+        
+        .card-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #b21f1f, #ff6b6b);
         }
         
         .card-content {
-            padding: 20px;
+            padding: 25px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -173,159 +342,312 @@
         
         .card-content img, .card-content video {
             max-width: 100%;
-            height: 250px;
-            border-radius: 8px;
-            margin: 10px auto;
+            height: 270px;
+            border-radius: 12px;
+            margin: 20px auto;
             flex-grow: 1;
             object-fit: contain;
-            background: #f8f8f8;
-            border: 1px solid #eee;
+            background: rgba(10, 15, 30, 0.6);
+            border: 1px solid rgba(100, 120, 200, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .link {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #1a2a6c;
-            color: white;
+            margin-top: 25px;
+            padding: 14px 30px;
+            background: linear-gradient(to right, #1a2a6c, #2c3e8f);
+            color: #ffd700;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.4s;
             text-align: center;
-            border: 2px solid #1a2a6c;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 5px 20px rgba(26, 42, 108, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: 0.6s;
         }
         
         .link:hover {
-            background: white;
-            color: #1a2a6c;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
+            background: linear-gradient(to right, #2c3e8f, #1a2a6c);
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(26, 42, 108, 0.6);
+            color: #ffffff;
+        }
+        
+        .link:hover::before {
+            left: 100%;
         }
         
         .footer {
-            background: #1a2a6c;
-            color: white;
+            background: linear-gradient(to right, #0d1a4d, #1a2a6c);
+            color: #ffd700;
             text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-            font-size: 1.1rem;
+            padding: 45px 25px;
+            margin-top: 60px;
+            font-size: 1.2rem;
+            position: relative;
+            border-top: 3px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(178, 31, 31, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(178, 31, 31, 0.2) 0%, transparent 30%);
         }
         
         .footer p {
-            margin: 10px 0;
+            margin: 15px 0;
+            position: relative;
         }
         
         .social-icons {
-            margin-top: 15px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
         .social-icons a {
-            display: inline-block;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd700;
             font-size: 1.8rem;
-            margin: 0 12px;
-            transition: transform 0.3s;
+            border-radius: 50%;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icons a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
         }
         
         .social-icons a:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            color: white;
+        }
+        
+        .social-icons a:hover::before {
+            opacity: 1;
+        }
+        
+        .quote {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 35px 50px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            font-style: italic;
+            font-size: 1.8rem;
+            text-align: center;
+            color: #ffd700;
+            position: relative;
+            border-left: 6px solid #b21f1f;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            font-family: 'Ma Shan Zheng', cursive;
+            line-height: 1.6;
+        }
+        
+        .quote::before, .quote::after {
+            content: """;
+            font-size: 4rem;
+            color: rgba(255, 215, 0, 0.3);
+            position: absolute;
+            font-family: serif;
+        }
+        
+        .quote::before {
+            top: 15px;
+            left: 25px;
+        }
+        
+        .quote::after {
+            bottom: 15px;
+            right: 25px;
+        }
+        
+        @media (max-width: 1200px) {
+            .jay-photo {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
-            .header h1 { font-size: 2.5rem; }
-            .section-title { font-size: 1.8rem; }
-            .grid-container { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2.8rem; }
+            .header p { font-size: 1.3rem; }
+            .section-title { font-size: 2.2rem; }
+            .grid-container { grid-template-columns: 1fr; gap: 30px; }
             .video-container { width: 95%; }
+            .quote { font-size: 1.4rem; padding: 20px; }
+            .section-intro { font-size: 1.2rem; }
+            .card-content img, .card-content video { height: 220px; }
         }
         
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: #b21f1f;
-            color: white;
+            bottom: 40px;
+            right: 40px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(45deg, #b21f1f, #ff6b6b);
+            color: #ffd700;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 30px rgba(178, 31, 31, 0.6);
             z-index: 100;
-            opacity: 0.8;
-            transition: all 0.3s;
+            opacity: 0.9;
+            transition: all 0.4s;
+            border: 3px solid rgba(255, 215, 0, 0.5);
         }
         
         .back-to-top:hover {
             opacity: 1;
-            transform: translateY(-5px);
+            transform: translateY(-10px) rotate(8deg);
+            box-shadow: 0 12px 35px rgba(178, 31, 31, 0.8);
         }
     </style>
 </head>
 <body>
+    <!-- 周杰伦照片装饰元素 - 随意但有章法 -->
+    <div class="jay-photo jay-photo-1">
+        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/Jay.jpg" alt="周杰伦">
+    </div>
+    
+    <div class="jay-photo jay-photo-2">
+        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/Jay2.jpg" alt="周杰伦">
+    </div>
+    
+    <div class="jay-photo jay-photo-3">
+        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/Jay3.jpg" alt="周杰伦">
+    </div>
+    
+    <div class="jay-photo jay-photo-4">
+        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/Jay4.jpg" alt="周杰伦">
+    </div>
+    
+    <div class="jay-photo jay-photo-5">
+        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/Jay5.jpg" alt="周杰伦">
+    </div>
+    
+    <div class="jay-photo jay-photo-6">
+        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/Jay6.jpg" alt="周杰伦">
+    </div>
+    
     <div class="container">
         <div class="header">
             <i class="music-icon fas fa-music"></i>
             <i class="music-icon fas fa-headphones"></i>
             <i class="music-icon fas fa-compact-disc"></i>
             <i class="music-icon fas fa-guitar"></i>
-            <h1>周杰伦项目展示</h1>
-            <p>探索周杰伦音乐世界的数据可视化与情感分析</p>
+            <i class="music-icon fas fa-microphone-alt"></i>
+            <i class="music-icon fas fa-drum"></i>
+            <h1>周杰伦音乐宇宙</h1>
+            <p>数据可视化 · 情感分析 · 粉丝文化探索</p>
         </div>
         
         <div class="main-content">
+            <div class="quote">
+                "音乐是人类的共同语言，而周杰伦用这种语言创造了属于整个华语世界的传奇"
+            </div>
+            
             <!-- 视频部分 -->
+            <div class="section-intro">
+                通过数据科学探索周杰伦音乐的魅力，深入分析千万粉丝的情感共鸣与文化现象。从弹幕到微博，从词云到情感分析，全面解读周杰伦音乐的影响力。
+            </div>
+            
             <div class="video-container">
-                <video controls>
+                <video controls poster="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=450&ixid=MnwxfDB8MXxyYW5kb218MHx8bXVzaWN8fHx8fHwxNzE3MDM0ODU4&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800">
                     <source src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%95%E5%85%A5.mp4" type="video/mp4">
                     您的浏览器不支持视频标签。
                 </video>
             </div>
             
             <!-- 弹幕分析部分 -->
-            <h2 class="section-title">弹幕分析</h2>
+            <h2 class="section-title">弹幕情感图谱</h2>
+            <div class="section-intro">
+                分析B站千万弹幕数据，揭示粉丝对周杰伦音乐的情感表达与互动模式。从高频词到语义网络，全面解析弹幕中的情感共鸣。
+            </div>
             <div class="grid-container">
                 <div class="card">
-                    <div class="card-header">周杰伦B站弹幕动态词云图</div>
+                    <div class="card-header">动态词云图</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6B%E7%AB%99%E5%BC%B9%E5%B9%95%E5%8A%A8%E6%80%81%E8%AF%8D%E4%BA%91%E5%9B%BE.gif" alt="动态词云图">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">弹幕词云图</div>
-                    <div class="card-content">
-                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="弹幕词云图">
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">弹幕高频词柱状图</div>
+                    <div class="card-header">高频词分布</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E9%AB%98%E9%A2%91%E8%AF%8D%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="高频词柱状图">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">弹幕热门词赛跑图</div>
+                    <div class="card-header">热门词趋势</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E7%83%AD%E9%97%A8%E8%AF%8D%E8%B5%9B%E8%B7%91%E5%9B%BE.gif" alt="热门词赛跑图">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">弹幕词语共现网络图</div>
+                    <div class="card-header">语义网络图</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%B9%E5%B9%95%E8%AF%8D%E8%AF%AD%E5%85%B1%E7%8E%B0%E7%BD%91%E7%BB%9C%E5%9B%BE.png" alt="词语共现网络图">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">弹幕词云</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="弹幕词云图">
                     </div>
                 </div>
             </div>
             
             <!-- 主题分析部分 -->
-            <h2 class="section-title">主题分析</h2>
+            <h2 class="section-title">主题深度解析</h2>
+            <div class="section-intro">
+                LDA主题模型揭示周杰伦音乐中的核心话题与情感维度。通过困惑度与连贯性分析，挖掘音乐中的深层主题结构。
+            </div>
             <div class="grid-container">
                 <div class="card">
                     <div class="card-header">LDA主题分析</div>
@@ -338,14 +660,14 @@
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">主题困惑度数据可视化</div>
+                    <div class="card-header">主题困惑度分析</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E5%9B%B0%E6%83%91%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题困惑度">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">主题连贯性可视化</div>
+                    <div class="card-header">主题连贯性模型</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E8%BF%9E%E8%B4%AF%E6%80%A7%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题连贯性">
                     </div>
@@ -353,38 +675,41 @@
             </div>
             
             <!-- 微博分析部分 -->
-            <h2 class="section-title">微博数据分析</h2>
+            <h2 class="section-title">微博粉丝生态</h2>
+            <div class="section-intro">
+                基于微博超话数据，探索周杰伦粉丝的互动模式与社区文化。从时间分布到内容分析，解读粉丝行为的规律与特点。
+            </div>
             <div class="grid-container">
                 <div class="card">
-                    <div class="card-header">周杰伦微博超话日期分布</div>
+                    <div class="card-header">超话时间分布</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BE%AE%E5%8D%9A%E8%B6%85%E8%AF%9D%E6%97%A5%E6%9C%9F%E5%88%86%E5%B8%83.png" alt="超话日期分布">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">超话微博发布时间分布</div>
+                    <div class="card-header">内容发布时间</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E5%BE%AE%E5%8D%9A%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83.png" alt="发布时间分布">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">超话点赞数分布</div>
+                    <div class="card-header">互动热度分析</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E7%82%B9%E8%B5%9E%E6%95%B0%E5%88%86%E5%B8%83.png" alt="点赞数分布">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">晴天微博词云图</div>
+                    <div class="card-header">歌曲话题词云</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E8%AF%8D%E4%BA%91%E5%9B%BE.jpg" alt="晴天微博词云">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">晴天微博柱状图</div>
+                    <div class="card-header">热门歌曲分析</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="晴天微博柱状图">
                     </div>
@@ -392,38 +717,41 @@
             </div>
             
             <!-- 情感分析部分 -->
-            <h2 class="section-title">情感分析</h2>
+            <h2 class="section-title">情感维度探索</h2>
+            <div class="section-intro">
+                NLP情感分析揭示粉丝对周杰伦音乐的深层情感反应。从情感分布到时间演化，全面解读粉丝的情感变化规律。
+            </div>
             <div class="grid-container">
                 <div class="card">
-                    <div class="card-header">怀旧视频情感分布饼图</div>
+                    <div class="card-header">情感分布图谱</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E5%88%86%E5%B8%83%E9%A5%BC%E5%9B%BE.png" alt="情感分布饼图">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">情感得分分布图</div>
+                    <div class="card-header">情感得分分布</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E5%BE%97%E5%88%86%E5%88%86%E5%B8%83%E5%9B%BE.png" alt="情感得分分布">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">情感时间变化图</div>
+                    <div class="card-header">情感时间演化</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E6%97%B6%E9%97%B4%E5%8F%98%E5%8C%96%E5%9B%BE.png" alt="情感时间变化">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">正面弹幕词云图</div>
+                    <div class="card-header">正面情感词云</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%AD%A3%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="正面词云">
                     </div>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">负面弹幕词云图</div>
+                    <div class="card-header">负面情感词云</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E8%B4%9F%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="负面词云">
                     </div>
@@ -431,10 +759,13 @@
             </div>
             
             <!-- 其他分析 -->
-            <h2 class="section-title">其他数据分析</h2>
+            <h2 class="section-title">数据洞察</h2>
+            <div class="section-intro">
+                从多维度数据中发现周杰伦音乐的传播规律与粉丝行为模式，揭示数据背后的音乐文化现象。
+            </div>
             <div class="grid-container">
                 <div class="card">
-                    <div class="card-header">视频观看量与弹幕量关系</div>
+                    <div class="card-header">观看与互动关系</div>
                     <div class="card-content">
                         <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%A7%86%E9%A2%91%E8%A7%82%E7%9C%8B%E9%87%8F%E4%B8%8E%E5%BC%B9%E5%B9%95%E9%87%8F%E5%85%B3%E7%B3%BB.png" alt="观看量与弹幕量">
                     </div>
@@ -443,15 +774,15 @@
         </div>
         
         <div class="footer">
-            <p>周杰伦项目数据分析展示</p>
-            <p>数据来源：B站弹幕、微博超话、视频评论等</p>
+            <p>周杰伦音乐数据分析项目</p>
+            <p>数据来源：B站弹幕、微博超话、视频评论、音乐平台数据</p>
             <div class="social-icons">
                 <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
                 <a href="#" title="Bilibili"><i class="fab fa-bilibili"></i></a>
                 <a href="#" title="音乐"><i class="fas fa-music"></i></a>
             </div>
-            <p>© 2023 周杰伦数据分析项目 | 致敬华语音乐传奇</p>
+            <p>© 2023 周杰伦音乐宇宙研究 | 致敬华语流行音乐传奇</p>
         </div>
     </div>
     
@@ -478,15 +809,38 @@
             });
         });
         
-        // 添加卡片悬停效果增强
+        // 卡片悬停效果
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px)';
+                card.style.transform = 'translateY(-15px) rotate(1deg)';
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
+                card.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        });
+        
+        // 照片点击效果
+        const jayPhotos = document.querySelectorAll('.jay-photo');
+        jayPhotos.forEach(photo => {
+            photo.addEventListener('click', () => {
+                const rotation = Math.random() * 30 - 15;
+                photo.style.transform = `rotate(${rotation}deg) scale(1.1)`;
+                setTimeout(() => {
+                    photo.style.transform = '';
+                }, 1500);
+            });
+        });
+        
+        // 动态背景音乐图标
+        const musicIcons = document.querySelectorAll('.music-icon');
+        musicIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.style.animation = 'none';
+                setTimeout(() => {
+                    icon.style.animation = 'float 5s ease-in-out infinite';
+                }, 10);
             });
         });
     </script>
