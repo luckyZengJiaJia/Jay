@@ -4,242 +4,493 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>周杰伦项目展示</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
+        * {
             margin: 0;
-            padding: 30px;
-            background-color: #e9ecef; /* Light grey background */
-            color: #343a40; /* Dark grey text */
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: #ffffff; /* White background for content area */
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            text-align: center;
-            color: #0056b3; /* Darker blue for headings */
-            margin-bottom: 20px;
-        }
-        h1 {
-            margin-bottom: 40px;
-            color: #007bff; /* Primary blue for main title */
-        }
-        .content-section {
-            margin-bottom: 40px;
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            line-height: 1.6;
             padding: 20px;
-            background-color: #f8f9fa; /* Lighter background for sections */
-            border-radius: 8px;
-            border: 1px solid #dee2e6; /* Light grey border */
+            min-height: 100vh;
         }
-        .content-item {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #ced4da; /* Dashed border */
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .content-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
-        .content-item h3 {
-            color: #007bff; /* Blue for item titles */
-            margin-top: 0;
+        
+        .header {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,30 100,0 L100,100 Q50,70 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            position: relative;
         }
-        .image-gallery {
+        
+        .header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+        }
+        
+        .music-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .music-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .music-icon:nth-child(2) { top: 60%; left: 15%; animation-delay: 0.5s; }
+        .music-icon:nth-child(3) { top: 40%; right: 12%; animation-delay: 1s; }
+        .music-icon:nth-child(4) { top: 70%; right: 8%; animation-delay: 1.5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .main-content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 35px 0 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1a2a6c;
+            color: #1a2a6c;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #b21f1f;
+        }
+        
+        .video-container {
+            width: 85%;
+            max-width: 800px;
+            margin: 30px auto 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            height: 100%;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Center images in the gallery */
-            gap: 20px; /* Space between images */
-            padding: 20px 0;
+            flex-direction: column;
         }
-        .image-gallery img {
-            max-width: 250px; /* Set max width for smaller images */
-            height: auto;
-            border: 1px solid #cce5ff; /* Light blue border */
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
-         .image-gallery img:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
+        
+        .card-header {
+            background: linear-gradient(to right, #1a2a6c, #2c3e8f);
+            color: white;
+            padding: 18px 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
-        .single-image img, .single-video video {
-             max-width: 600px; /* Max width for single larger images/videos */
-             width: 100%; /* Ensure responsiveness */
-             height: auto;
-             display: block;
-             margin: 15px auto;
-             border: 1px solid #cce5ff;
-             border-radius: 8px;
-             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
-        .content-item a {
-             text-decoration: none; /* Remove underline from links */
-             color: inherit; /* Inherit color from parent */
-             display: block; /* Make the link block-level */
-             text-align: center;
+        
+        .card-content img, .card-content video {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 10px auto;
+            flex-grow: 1;
+            object-fit: contain;
+            background: #f8f8f8;
+            border: 1px solid #eee;
         }
-        .content-item a:hover img {
-             transform: scale(1.05); /* Apply hover effect to image inside link */
+        
+        .link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #1a2a6c;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            border: 2px solid #1a2a6c;
         }
-        .content-item .link-text {
-             display: block;
-             text-align: center;
-             margin-top: 10px;
-             color: #007bff;
-             text-decoration: none;
+        
+        .link:hover {
+            background: white;
+            color: #1a2a6c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
         }
-        .content-item .link-text:hover {
-            text-decoration: underline;
+        
+        .word-cloud-section .grid-container {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
-         /* Specific style for the initial video to add more space below it */
-        .initial-video {
-             margin-bottom: 40px;
-             padding-bottom: 20px;
-             border-bottom: 2px solid #007bff; /* Add a more prominent separator */
+        
+        .footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 12px;
+            transition: transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .grid-container { grid-template-columns: 1fr; }
+            .video-container { width: 95%; }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #b21f1f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top:hover {
+            opacity: 1;
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>周杰伦项目内容展示</h1>
-
-        <!-- 周杰伦引入视频 - 放置在开头 -->
-        <div class="content-item single-video initial-video">
-            <h3>周杰伦引入 (视频)</h3>
-            <video controls>
-                <source src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%95%E5%85%A5.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-            </video>
+        <div class="header">
+            <i class="music-icon fas fa-music"></i>
+            <i class="music-icon fas fa-headphones"></i>
+            <i class="music-icon fas fa-compact-disc"></i>
+            <i class="music-icon fas fa-guitar"></i>
+            <h1>周杰伦项目展示</h1>
+            <p>探索周杰伦音乐世界的数据可视化与情感分析</p>
         </div>
-
-
-        <!-- Section for key visualizations -->
-        <div class="content-section">
-            <h2>关键可视化图表</h2>
-
-            <div class="content-item single-image">
-                <h3>LDA展示图 (点击查看LDA主题分析)</h3>
-                <!-- Wrap the image in an anchor tag that links to the HTML file -->
-                <a href="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95LDA%E4%B8%BB%E9%A2%98%E5%88%86%E6%9E%90%E5%8F%AF%E8%A7%86%E5%8C%96.html" target="_blank">
-                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/LDA%E5%B1%95%E7%A4%BA%E5%9B%BE.png" alt="LDA展示图">
-                </a>
+        
+        <div class="main-content">
+            <!-- 视频部分 -->
+            <div class="video-container">
+                <video controls>
+                    <source src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%95%E5%85%A5.mp4" type="video/mp4">
+                    您的浏览器不支持视频标签。
+                </video>
             </div>
-
-            <div class="content-item single-image">
-                <h3>主题困惑度数据可视化图</h3>
-                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E5%9B%B0%E6%83%91%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题困惑度数据可视化图">
-            </div>
-
-             <div class="content-item single-image">
-                <h3>主题连贯性可视化图</h3>
-                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E8%BF%9E%E8%B4%AF%E6%80%A7%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题连贯性可视化图">
-            </div>
-
-        </div>
-
-         <!-- Section for Word Clouds -->
-        <div class="content-section">
-            <h2>词云图集合</h2>
-            <div class="image-gallery">
-                <div class="content-item">
-                    <h3>周杰伦B站弹幕动态词云图 (GIF)</h3>
-                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6B%E7%AB%99%E5%BC%B9%E5%B9%95%E5%8A%A8%E6%80%81%E8%AF%8D%E4%BA%91%E5%9B%BE.gif" alt="周杰伦B站弹幕动态词云图">
+            
+            <!-- 弹幕分析部分 -->
+            <h2 class="section-title">弹幕分析</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-header">周杰伦B站弹幕动态词云图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6B%E7%AB%99%E5%BC%B9%E5%B9%95%E5%8A%A8%E6%80%81%E8%AF%8D%E4%BA%91%E5%9B%BE.gif" alt="动态词云图">
+                    </div>
                 </div>
-
-                <div class="content-item">
-                    <h3>周杰伦晴天微博_词云图 (JPG)</h3>
-                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E8%AF%8D%E4%BA%91%E5%9B%BE.jpg" alt="周杰伦晴天微博_词云图">
+                
+                <div class="card">
+                    <div class="card-header">弹幕词云图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="弹幕词云图">
+                    </div>
                 </div>
-
-                 <div class="content-item">
-                    <h3>弹幕词云图</h3>
-                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="弹幕词云图">
+                
+                <div class="card">
+                    <div class="card-header">弹幕高频词柱状图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E9%AB%98%E9%A2%91%E8%AF%8D%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="高频词柱状图">
+                    </div>
                 </div>
-
-                <div class="content-item">
-                    <h3>正面弹幕词云图</h3>
-                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%AD%A3%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="正面弹幕词云图">
+                
+                <div class="card">
+                    <div class="card-header">弹幕热门词赛跑图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E7%83%AD%E9%97%A8%E8%AF%8D%E8%B5%9B%E8%B7%91%E5%9B%BE.gif" alt="热门词赛跑图">
+                    </div>
                 </div>
-
-                <div class="content-item">
-                    <h3>负面弹幕词云图</h3>
-                    <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E8%B4%9F%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="负面弹幕词云图">
+                
+                <div class="card">
+                    <div class="card-header">弹幕词语共现网络图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%B9%E5%B9%95%E8%AF%8D%E8%AF%AD%E5%85%B1%E7%8E%B0%E7%BD%91%E7%BB%9C%E5%9B%BE.png" alt="词语共现网络图">
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-         <!-- Section for other charts -->
-        <div class="content-section">
-            <h2>其他图表</h2>
-
-            <div class="content-item single-image">
-                <h3>周杰伦弹幕词语共现网络图</h3>
-                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BC%B9%E5%B9%95%E8%AF%8D%E8%AF%AD%E5%85%B1%E7%8E%B0%E7%BD%91%E7%BB%9C%E5%9B%BE.png" alt="周杰伦弹幕词语共现网络图">
+            
+            <!-- 主题分析部分 -->
+            <h2 class="section-title">主题分析</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-header">LDA主题分析</div>
+                    <div class="card-content">
+                        <a href="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95LDA%E4%B8%BB%E9%A2%98%E5%88%86%E6%9E%90%E5%8F%AF%E8%A7%86%E5%8C%96.html" target="_blank">
+                            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/LDA%E5%B1%95%E7%A4%BA%E5%9B%BE.png" alt="LDA展示图">
+                        </a>
+                        <a href="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95LDA%E4%B8%BB%E9%A2%98%E5%88%86%E6%9E%90%E5%8F%AF%E8%A7%86%E5%8C%96.html" class="link" target="_blank">查看完整分析</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">主题困惑度数据可视化</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E5%9B%B0%E6%83%91%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题困惑度">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">主题连贯性可视化</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E4%B8%BB%E9%A2%98%E8%BF%9E%E8%B4%AF%E6%80%A7%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE.png" alt="主题连贯性">
+                    </div>
+                </div>
             </div>
-
-            <div class="content-item single-image">
-                <h3>周杰伦微博超话日期分布</h3>
-                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BE%AE%E5%8D%9A%E8%B6%85%E8%AF%9D%E6%97%A5%E6%9C%9F%E5%88%86%E5%B8%83.png" alt="周杰伦微博超话日期分布">
+            
+            <!-- 微博分析部分 -->
+            <h2 class="section-title">微博数据分析</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-header">周杰伦微博超话日期分布</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E5%BE%AE%E5%8D%9A%E8%B6%85%E8%AF%9D%E6%97%A5%E6%9C%9F%E5%88%86%E5%B8%83.png" alt="超话日期分布">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">超话微博发布时间分布</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E5%BE%AE%E5%8D%9A%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83.png" alt="发布时间分布">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">超话点赞数分布</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E7%82%B9%E8%B5%9E%E6%95%B0%E5%88%86%E5%B8%83.png" alt="点赞数分布">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">晴天微博词云图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E8%AF%8D%E4%BA%91%E5%9B%BE.jpg" alt="晴天微博词云">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">晴天微博柱状图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="晴天微博柱状图">
+                    </div>
+                </div>
             </div>
-
-             <div class="content-item single-image">
-                <h3>周杰伦怀旧视频情感分布饼图</h3>
-                <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%94%91%E6%83%85%E6%84%9F%E5%88%86%E5%B8%83%E9%饼图.png" alt="周杰伦怀旧视频情感分布饼图">
+            
+            <!-- 情感分析部分 -->
+            <h2 class="section-title">情感分析</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-header">怀旧视频情感分布饼图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E5%88%86%E5%B8%83%E9%饼图.png" alt="情感分布饼图">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">情感得分分布图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E5%BE%97%E5%88%86%E5%88%86%E5%B8%83%E5%9B%BE.png" alt="情感得分分布">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">情感时间变化图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E6%97%B6%E9%97%B4%E5%8F%98%E5%8C%96%E5%9B%BE.png" alt="情感时间变化">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">正面弹幕词云图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%AD%A3%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="正面词云">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">负面弹幕词云图</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E8%B4%9F%E9%9D%A2%E5%BC%B9%E5%B9%95%E8%AF%8D%E4%BA%91%E5%9B%BE.png" alt="负面词云">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他分析 -->
+            <h2 class="section-title">其他数据分析</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-header">视频观看量与弹幕量关系</div>
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%A7%86%E9%A2%91%E8%A7%82%E7%9C%8B%E9%87%8F%E4%B8%8E%E5%BC%B9%E5%B9%95%E9%87%8F%E5%85%B3%E7%B3%BB.png" alt="观看量与弹幕量">
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="content-item single-image">
-            <h3>周杰伦怀旧视频情感得分分布图</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%A2%91%E6%83%85%E6%84%9F%E5%BE%97%E5%88%86%E5%88%86%E5%B8%83%E5%9B%BE.png" alt="周杰伦怀旧视频情感得分分布图">
+        
+        <div class="footer">
+            <p>周杰伦项目数据分析展示</p>
+            <p>数据来源：B站弹幕、微博超话、视频评论等</p>
+            <div class="social-icons">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
+                <a href="#" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+                <a href="#" title="音乐"><i class="fas fa-music"></i></a>
+            </div>
+            <p>© 2023 周杰伦数据分析项目 | 致敬华语音乐传奇</p>
         </div>
-
-         <div class="content-item single-image">
-            <h3>周杰伦怀旧视频情感时间变化图</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E6%80%80%E6%97%A7%E8%A7%86%E9%94%91%E6%83%85%E6%84%9F%E6%97%B6%E9%97%B4%E5%8F%98%E5%8C%96%E5%9B%BE.png" alt="周杰伦怀旧视频情感时间变化图">
-        </div>
-
-         <div class="content-item single-image">
-            <h3>周杰伦视频观看量与弹幕量关系</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%A7%86%E9%A2%91%E8%A7%82%E7%9C%8B%E9%87%8F%E4%B8%8E%E5%BC%B9%E5%B9%95%E9%87%8F%E5%85%B3%E7%B3%BB.png" alt="周杰伦视频观看量与弹幕量关系">
-        </div>
-
-        <div class="content-item single-image">
-            <h3>周杰伦超话微博发布时间分布</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E5%BE%AE%E5%8D%9A%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83.png" alt="周杰伦超话微博发布时间分布">
-        </div>
-
-        <div class="content-item single-image">
-            <h3>周杰伦超话点赞数分布</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%91%A8%E6%9D%B0%E4%BC%A6%E8%B6%85%E8%AF%9D%E7%82%B9%E8%B5%9E%E6%95%B0%E5%88%86%E5%B8%83.png" alt="周杰伦超话点赞数分布">
-        </div>
-
-         <div class="content-item single-image">
-            <h3>弹幕热门词赛跑图 (GIF)</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E7%83%AD%E9%97%A8%E8%AF%8D%E8%B5%9B%E8%B7%91%E5%9B%BE.gif" alt="弹幕热门词赛跑图">
-        </div>
-
-        <div class="content-item single-image">
-            <h3>弹幕高频词柱状图</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E5%BC%B9%E5%B9%95%E9%AB%98%E9%94%91%E8%AF%8D%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="弹幕高频词柱状图">
-        </div>
-
-        <div class="content-item single-image">
-            <h3>晴天微博_柱状图</h3>
-            <img src="https://raw.githubusercontent.com/luckyZengJiaJia/Jay/main/%E6%99%B4%E5%A4%A9%E5%BE%AE%E5%8D%9A_%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" alt="晴天微博_柱状图">
-        </div>
-
-
-        </div>
-
     </div>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // 返回顶部功能
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 添加卡片悬停效果增强
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
